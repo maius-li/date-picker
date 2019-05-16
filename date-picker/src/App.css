@@ -23,14 +23,44 @@
   color: #61dafb;
 }
 
-span {
+.title span {
     display: inline-block;
-    width: 100px;
+    width: calc(100% / 7);
+    cursor: pointer;
+}
+
+.title span:hover {
+    background-color: #e0e1e2;
+}
+
+.month-container span {
+    display: inline-block;
+    width: calc(100% / 7);
     text-align: center;
 }
 
-span.day-0, span.day-6 {
-    color: red;
+.month-content span:hover {
+    background-color: #61dafb;
+    cursor: pointer;
+}
+
+.month-content span.day-0, span.day-6 {
+    color: #db2828;
+}
+
+.container-wrap {
+    width: 40%;
+}
+
+.title {
+    text-align: center;
+    line-height: 40px;
+}
+
+@media screen and (max-width: 468px) {
+    .container-wrap {
+        width: 100%;
+    }
 }
 
 @keyframes App-logo-spin {
@@ -40,4 +70,4 @@ span.day-0, span.day-6 {
   to {
     transform: rotate(360deg);
   }
-}
+} 

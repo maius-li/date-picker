@@ -4,14 +4,11 @@ class Day extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-
-        }
+        this.state = {}
     }
 
     getClassName = () => {
         let className = 'day'
-
         className += ` day-${this.props.day.getDay()}`
 
         return className;
@@ -21,7 +18,7 @@ class Day extends Component {
         const leftPadSpans = [];
         if (this.props.day.getDate() === 1) {
             for (let day = 0; day < this.props.day.getDay(); day += 1) {
-                leftPadSpans.push(<span />);
+                leftPadSpans.push(<span key={day} />);
             }
         }
 

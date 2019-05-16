@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Day from './Day';
 import WeekList from './WeekList';
+import Hour from './Hour';
+import Minute from './Minute';
 
 class Month extends Component {
     constructor(props) {
@@ -13,6 +15,14 @@ class Month extends Component {
 
     componentDidMount() {
         this.initializeDays();
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if(nextProps !== this.props) {
+            this.initializeDays();
+        }
+
+        return true;
     }
 
     initializeDays = () => {
@@ -56,13 +66,16 @@ class Month extends Component {
         const selectedDay = this.state.selectedDay ? this.state.selectedDay.toLocaleDateString() : '';
 
         return (
-            <div className="container-title-wrap">
+            <div className="month-container">
                 <input
                     type="text"
                     value={selectedDay}
                 />
+                <Hour />
+                <Minute />
+
                 <WeekList />
-                {this.getDays()}
+                <div className="month-content">{this.getDays()}</div>
             </div>
         );
     }

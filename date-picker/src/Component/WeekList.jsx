@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 
 class WeekList extends Component {
-    constructor(props) {
-        super(props);
-
-    }
 
     render() {
-        const { day } = this.props;
         const weekList = ['日', '一', '二', '三', '四', '五', '六'];
 
         return (
-            <div>
+            <div className="week-wrap">
                 {weekList.map((item, index) => {
                     return(
-                        <span>
+                        <span key={index}>
                             {item}
                         </span>
                     )
